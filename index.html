@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crittavex Story Generator</title>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #fff7e6, #eef8ff);
+  color: #333;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 25px 18px 50px;
+}
+
+header {
+  text-align: center;
+  padding: 25px 10px;
+}
+
+.logo {
+  font-size: 55px;
+}
+
+h1 {
+  margin: 5px 0;
+  font-size: 32px;
+  color: #5b4b9a;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 15px 0 7px;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #8b7bd8;
+}
+
+button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: #6c5ce7;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.story {
+  display: none;
+  line-height: 1.8;
+}
+
+.story h2 {
+  color: #5b4b9a;
+  text-align: center;
+}
+
+.story-text {
+  white-space: pre-line;
+  font-size: 17px;
+}
+
+.footer {
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">📖🧸✨</div>
+  <h1>Crittavex</h1>
+  <div class="subtitle">Create a magical story for your little one</div>
+</header>
+
+<div class="card">
+
+  <label>👧 Child's Name</label>
+  <input id="name" type="text" placeholder="Enter a name">
+
+  <label>🐾 Choose a Character</label>
+  <select id="character">
+    <option value="little rabbit">🐰 Little Rabbit</option>
+    <option value="cute bear">🐻 Cute Bear</option>
+    <option value="little fox">🦊 Little Fox</option>
+    <option value="tiny kitten">🐱 Tiny Kitten</option>
+    <option value="friendly puppy">🐶 Friendly Puppy</option>
+  </select>
+
+  <label>🌈 Choose a Theme</label>
+  <select id="theme">
+    <option value="adventure">🌳 Magical Adventure</option>
+    <option value="friendship">🤝 Friendship</option>
+    <option value="kindness">💖 Kindness</option>
+    <option value="bravery">🦁 Being Brave</option>
+    <option value="dream">🌙 Magical Dream</option>
+  </select>
+
+  <button onclick="generateStory()">✨ Create My Story</button>
+
+</div>
+
+<div class="card story" id="storyBox">
+
+  <h2 id="storyTitle"></h2>
+
+  <div class="story-text" id="storyText"></div>
+
+  <button onclick="generateStory()">🔄 Create Another Story</button>
+
+</div>
+
+<div class="footer">
+  © 2026 Crittavex • Little stories, big imaginations ✨
+</div>
+
+</div>
+
+<script>
+
+function generateStory() {
+
+  let name = document.getElementById("name").value.trim();
+  let character = document.getElementById("character").value;
+  let theme = document.getElementById("theme").value;
+
+  if (name === "") {
+    name = "Little Explorer";
+  }
+
+  let title = "";
+  let story = "";
+
+  if (theme === "adventure") {
+
+    title = name + " and the Magical Forest";
+
+    story =
+`One sunny morning, ${name} went for a walk and discovered a tiny ${character} hiding behind a tree.
+
+"Are you lost?" asked ${name}.
+
+The ${character} smiled and pointed towards a mysterious path covered with sparkling flowers.
+
+Together, they followed the path deep into the magical forest.
+
+They crossed a little bridge, climbed a hill, and discovered a beautiful secret garden.
+
+${name} realized that the greatest adventures are even more special when we share them with a friend.
+
+And from that day on, ${name} and the ${character} became the best of friends.
+
+🌟 The End 🌟`;
+
+  }
+
+  else if (theme === "friendship") {
+
+    title = name + " and the New Friend";
+
+    story =
+`One afternoon, ${name} found a lonely ${character} sitting quietly under a tree.
+
+"Would you like to play with me?" asked ${name}.
+
+The ${character} happily nodded.
+
+They played together, shared their snacks, and laughed until the sun began to set.
+
+Before going home, ${name} learned something important:
+
+A true friend is someone who makes you smile, listens to you, and stays beside you.
+
+From that day forward, ${name} never let the ${character} feel lonely again.
+
+💖 The End 💖`;
+
+  }
+
+  else if (theme === "kindness") {
+
+    title = name + " and the Little Act of Kindness";
+
+    story =
+`While walking through the garden, ${name} noticed a little ${character} who looked tired and hungry.
+
+${name} shared some food and helped the ${character} find a safe place to rest.
+
+The ${character} smiled warmly.
+
+"You made my day better," said the little friend.
+
+${name} smiled too.
+
+That evening, ${name} discovered that even the smallest act of kindness can make someone's world brighter.
+
+✨ The End ✨`;
+
+  }
+
+  else if (theme === "bravery") {
+
+    title = name + " and the Brave Little Heart";
+
+    story =
+`One quiet evening, ${name} heard a strange sound outside.
+
+Behind the bushes was a frightened ${character}.
+
+At first, ${name} felt a little scared too.
+
+But ${name} took a deep breath and walked closer.
+
+"It's okay. I'm here with you."
+
+Together, they discovered that the scary sound was only the wind moving through the trees.
+
+${name} learned that being brave doesn't mean never being afraid.
+
+Sometimes, being brave simply means taking one small step forward.
+
+🦁 The End 🦁`;
+
+  }
+
+  else {
+
+    title = name + "'s Magical Dream";
+
+    story =
+`That night, ${name} closed their eyes and fell asleep.
+
+Suddenly, ${name} found themselves in a magical world filled with glowing stars.
+
+A tiny ${character} appeared and invited ${name} to fly among the clouds.
+
+They visited a castle made of moonlight and danced beneath the stars.
+
+Before sunrise, the ${character} whispered:
+
+"Never stop believing in your imagination."
+
+${name} woke up with a big smile.
+
+Maybe it was only a dream...
+
+Or maybe the adventure was just beginning.
+
+🌙 The End 🌙`;
+
+  }
+
+  document.getElementById("storyTitle").innerText = title;
+  document.getElementById("storyText").innerText = story;
+  document.getElementById("storyBox").style.display = "block";
+
+  document.getElementById("storyBox").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+</script>
+
+</body>
+    </html>
